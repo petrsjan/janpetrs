@@ -5,32 +5,41 @@ body {
   padding: 20px;
   background: #f9f9f9;
 }
+
 header, footer {
   text-align: center;
   margin-bottom: 40px;
 }
+
 h1 {
   margin-bottom: 5px;
 }
+
 section {
   margin-bottom: 50px;
 }
+
 .grid {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
+  justify-content: space-between; /* přidáme zarovnání mezi obrázky */
 }
+
 .project {
   position: relative;
-  width: 300px;
+  width: calc(33.333% - 13.33px); /* tři vedle sebe s mezerami */
   overflow: hidden;
+  box-sizing: border-box;
 }
+
 .project img {
   width: 100%;
   height: auto;
   display: block;
   transition: 0.3s ease-in-out;
 }
+
 .project .overlay {
   position: absolute;
   bottom: 0;
@@ -41,6 +50,7 @@ section {
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
 }
+
 .project:hover .overlay {
   opacity: 1;
 }
