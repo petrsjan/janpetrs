@@ -10,93 +10,83 @@
     <h1>Jan Petrš</h1>
     <p>Researcher in Robotics and Architecture | EPFL</p>
     <p class="subheader">
-      I envision a future where buildings self-configure from intelligent components, enabling construction to become more sustainable, optimized, and authentic. Spaces will dynamically adapt based on their use. Originally trained as an architect, I now focus on robotics at EPFL—particularly walkable tensegrities—blending design and research at the intersection of robotics, materials, and the built environment.
+      I envision a future where buildings self-configure from intelligent components, enabling construction to become more sustainable, optimized, and authentic.
+      Spaces will dynamically adapt based on their use. Originally trained as an architect, I now focus on robotics at EPFL—particularly walkable tensegrities—blending design and research at the intersection of robotics, materials, and the built environment.
     </p>
   </header>
 
   <section>
-    <h2>Research</h2>
+    <h2>Projects</h2>
     <div class="grid">
-      <div class="project">
-        <img src="IMG_8011.jpg" alt="Lausanne">
+      <div class="project"
+           data-title="Tensegrity Gripper"
+           data-authors="Jan Petrš, EPFL"
+           data-year="2024"
+           data-place="Lausanne, Switzerland"
+           data-role="Concept, design, prototyping"
+           data-abstract="This project explores a lightweight soft robotic gripper using a tensegrity structure actuated by pneumatic muscles."
+           data-image="IMG_8011.jpg"
+           data-gallery="IMG_8011.jpg,IMG_8011.jpg,IMG_8011.jpg">
+        <img src="IMG_8011.jpg" alt="Tensegrity Gripper">
         <div class="overlay">
-          <h3>Lausanne</h3>
+          <h3>Tensegrity Gripper</h3>
           <p>Jan Petrš, 2024</p>
         </div>
       </div>
-      <div class="project">
-          <img src="IMG_8011.jpg" alt="Lausanne">
-        <div class="overlay">
-          <h3>Lausanne</h3>
-          <p>J. Petrš, 2023</p>
-        </div>
-      </div>
-      <div class="project">
-         <img src="IMG_8011.jpg" alt="Lausanne">
-        <div class="overlay">
-          <h3>Lausanne</h3>
-          <p>J. Petrš, 2022</p>
-        </div>
-      </div>
     </div>
   </section>
 
-  <section>
-    <h2>Architecture</h2>
-    <div class="grid">
-      <div class="project">
-        <img src="img/pavilion.jpg" alt="Pavilion">
-        <div class="overlay">
-          <h3>Bioinspired Pavilion</h3>
-          <p>J. Petrš, 2021</p>
-        </div>
-      </div>
-      <div class="project">
-        <img src="img/structure.jpg" alt="Structure">
-        <div class="overlay">
-          <h3>Modular Wall</h3>
-          <p>J. Petrš, 2020</p>
-        </div>
-      </div>
-      <div class="project">
-        <img src="img/fabrication.jpg" alt="Fabrication">
-        <div class="overlay">
-          <h3>Fabrication Study</h3>
-          <p>J. Petrš, 2019</p>
-        </div>
-      </div>
+  <div id="projectDetail" class="detail-view hidden">
+    <div class="detail-content">
+      <span class="close-btn">&times;</span>
+      <img id="detailMainImg" class="detail-main-img" src="" alt="">
+      <h2 id="detailTitle"></h2>
+      <p><strong>Authors:</strong> <span id="detailAuthors"></span></p>
+      <p><strong>Year:</strong> <span id="detailYear"></span></p>
+      <p><strong>Place:</strong> <span id="detailPlace"></span></p>
+      <p><strong>Role:</strong> <span id="detailRole"></span></p>
+      <p id="detailAbstract"></p>
+      <div id="detailGallery" class="gallery"></div>
     </div>
-  </section>
-
-  <section>
-    <h2>Other</h2>
-    <div class="grid">
-      <div class="project">
-        <img src="img/art.jpg" alt="Art project">
-        <div class="overlay">
-          <h3>Art and Robotics</h3>
-          <p>Interactive Installation, 2023</p>
-        </div>
-      </div>
-      <div class="project">
-        <img src="img/experiment.jpg" alt="Experiment">
-        <div class="overlay">
-          <h3>Sensorial Sculpture</h3>
-          <p>2022</p>
-        </div>
-      </div>
-      <div class="project">
-        <img src="img/installation.jpg" alt="Installation">
-        <div class="overlay">
-          <h3>Robotic Installation</h3>
-          <p>2021</p>
-        </div>
-      </div>
-    </div>
-  </section>
+  </div>
 
   <footer>
     <p>Contact: <a href="mailto:jan@example.com">jan@example.com</a></p>
   </footer>
+
+  <script>
+    const projects = document.querySelectorAll('.project');
+    const detailView = document.getElementById('projectDetail');
+    const closeBtn = document.querySelector('.close-btn');
+
+    projects.forEach(project => {
+      project.addEventListener('click', () => {
+        detailView.classList.add('visible');
+
+        document.getElementById('detailTitle').innerText = project.dataset.title;
+        document.getElementById('detailAuthors').innerText = project.dataset.authors;
+        document.getElementById('detailYear').innerText = project.dataset.year;
+        document.getElementById('detailPlace').innerText = project.dataset.place;
+        document.getElementById('detailRole').innerText = project.dataset.role;
+        document.getElementById('detailAbstract').innerText = project.dataset.abstract;
+        document.getElementById('detailMainImg').src = project.dataset.image;
+
+        const galleryContainer = document.getElementById('detailGallery');
+        galleryContainer.innerHTML = '';
+        const images = project.dataset.gallery.split(',');
+        images.forEach(src => {
+          const img = document.createElement('img');
+          img.src = src;
+          galleryContainer.appendChild(img);
+        });
+
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    });
+
+    closeBtn.addEventListener('click', () => {
+      detailView.classList.remove('visible');
+    });
+  </script>
 </body>
 </html>
