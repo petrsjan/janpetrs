@@ -1,8 +1,8 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Jan Petrš</title>
   <link rel="stylesheet" href="style.css">
 </head>
@@ -11,42 +11,53 @@
     <h1>Jan Petrš</h1>
     <p>Researcher in Robotics and Architecture | EPFL</p>
     <p class="subheader">
-      I envision a future where buildings self-configure from intelligent components, enabling construction to become more sustainable, optimized, and authentic.
-      Spaces will dynamically adapt based on their use. Originally trained as an architect, I now focus on robotics at EPFL—particularly walkable tensegrities—blending
-      design and research at the intersection of robotics, materials, and the built environment.
+      I envision a future where buildings self-configure from intelligent components, enabling construction to become more sustainable, optimized, and authentic. Spaces will dynamically adapt based on their use. Originally trained as an architect, I now focus on robotics at EPFL—particularly walkable tensegrities—blending design and research at the intersection of robotics, materials, and the built environment.
     </p>
   </header>
 
-  <main>
-    <div class="grid" id="project-grid">
-      <div class="project" onclick="openProject('project1')">
-        <img src="IMG_8011.jpg" alt="Project Thumbnail">
+  <section class="projects">
+    <div class="grid">
+      <div class="project" onclick="openProject(this)" data-title="Tensegrity Gripper" data-author="Jan Petrš" data-year="2024" data-place="Lausanne" data-description="Soft robotic gripper based on tensegrity structures for lightweight manipulation.">
+        <img src="IMG_8011.jpg" alt="Project 1">
         <div class="overlay">
           <h3>Tensegrity Gripper</h3>
           <p>Jan Petrš, 2024</p>
         </div>
       </div>
-      <!-- Duplicate the above div to add more grid items -->
+      <div class="project" onclick="openProject(this)" data-title="Bioinspired Pavilion" data-author="J. Petrš" data-year="2021" data-place="Stuttgart" data-description="A lightweight architectural pavilion inspired by natural morphologies.">
+        <img src="IMG_8011.jpg" alt="Project 2">
+        <div class="overlay">
+          <h3>Bioinspired Pavilion</h3>
+          <p>J. Petrš, 2021</p>
+        </div>
+      </div>
+      <div class="project" onclick="openProject(this)" data-title="Art and Robotics" data-author="Jan Petrš" data-year="2023" data-place="EPFL" data-description="An interactive installation exploring the intersection of art and robotics.">
+        <img src="IMG_8011.jpg" alt="Project 3">
+        <div class="overlay">
+          <h3>Art and Robotics</h3>
+          <p>Interactive, 2023</p>
+        </div>
+      </div>
+      <!-- Add more projects here -->
     </div>
-  </main>
+  </section>
 
   <div id="project-detail" class="hidden">
-    <div class="detail-content">
-      <img class="main-image" src="IMG_8011.jpg" alt="Main Image">
-      <h2>Tensegrity Gripper</h2>
-      <p><strong>Authors:</strong> Jan Petrš, Team</p>
-      <p><strong>Role:</strong> Concept, Design, Prototyping</p>
-      <p><strong>Year:</strong> 2024</p>
-      <p><strong>Location:</strong> EPFL, Lausanne</p>
-      <p class="description">
-        This project explores a lightweight and flexible gripper based on tensegrity principles. It combines soft robotics and structural design.
-      </p>
-      <div class="gallery">
-        <img src="IMG_8011.jpg" onclick="showImage(this.src)">
-        <img src="IMG_8011.jpg" onclick="showImage(this.src)">
-        <img src="IMG_8011.jpg" onclick="showImage(this.src)">
-      </div>
-      <button class="close-btn" onclick="closeProject()">Back to Projects</button>
+    <button class="close" onclick="closeProject()">&times;</button>
+    <div class="detail-image">
+      <img src="IMG_8011.jpg" alt="Large View">
+    </div>
+    <div class="detail-text">
+      <h2 id="detail-title"></h2>
+      <p><strong>Author:</strong> <span id="detail-author"></span></p>
+      <p><strong>Year:</strong> <span id="detail-year"></span></p>
+      <p><strong>Place:</strong> <span id="detail-place"></span></p>
+      <p id="detail-description"></p>
+    </div>
+    <div class="thumbnail-bar">
+      <img src="IMG_8011.jpg" alt="Thumb" onclick="zoomThumbnail(this)">
+      <img src="IMG_8011.jpg" alt="Thumb" onclick="zoomThumbnail(this)">
+      <img src="IMG_8011.jpg" alt="Thumb" onclick="zoomThumbnail(this)">
     </div>
   </div>
 
