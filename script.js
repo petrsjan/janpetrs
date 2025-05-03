@@ -11,15 +11,22 @@ function openProject(element) {
   document.getElementById('detail-year').innerText = year;
   document.getElementById('detail-place').innerText = place;
   document.getElementById('detail-description').innerText = description;
-  document.querySelector('.detail-image img').src = imageSrc;
+  document.querySelector('#project-detail .detail-image img').src = imageSrc;
 
-  const thumbnails = document.querySelectorAll('.thumbnail-bar img');
-  thumbnails.forEach(thumb => {
+  const bar = document.querySelector('.thumbnail-bar');
+  bar.innerHTML = '';
+  for (let i = 0; i < 3; i++) {
+    const thumb = document.createElement('img');
     thumb.src = imageSrc;
-  });
+    thumb.onclick = () => zoomThumbnail(thumb);
+    bar.appendChild(thumb);
+  }
 
   document.getElementById('project-detail').classList.remove('hidden');
-  window.scrollTo(0, 0);
+  window.scrollTo({
+    top: document.getElementById('project-detail').offsetTop - 50,
+    behavior: 'smooth'
+  });
 }
 
 function closeProject() {
@@ -27,6 +34,10 @@ function closeProject() {
 }
 
 function zoomThumbnail(el) {
-  const mainImg = document.querySelector('.detail-image img');
+  const mainImg = document.querySelector('#project-detail .detail-image img');
   mainImg.src = el.src;
+}
+
+function zoomImage(el) {
+  el.classList.toggle('zoomed');
 }

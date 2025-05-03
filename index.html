@@ -1,17 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Jan Petrš</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header>
     <h1>Jan Petrš</h1>
     <p>Researcher in Robotics and Architecture | EPFL</p>
     <p class="subheader">
-      I envision a future where buildings self-configure from intelligent components, enabling construction to become more sustainable, optimized, and authentic. Spaces will dynamically adapt based on their use. Originally trained as an architect, I now focus on robotics at EPFL—particularly walkable tensegrities—blending design and research at the intersection of robotics, materials, and the built environment.
+      I envision a future where buildings self-configure from intelligent components,
+      enabling construction to become more sustainable, optimized, and authentic.
+      Spaces will dynamically adapt based on their use. Originally trained as an architect,
+      I now focus on robotics at EPFL—particularly walkable tensegrities—blending design
+      and research at the intersection of robotics, materials, and the built environment.
     </p>
   </header>
 
@@ -31,31 +35,23 @@
           <p>J. Petrš, 2021</p>
         </div>
       </div>
-      <div class="project" onclick="openProject(this)" data-title="Art and Robotics" data-author="Jan Petrš" data-year="2023" data-place="EPFL" data-description="An interactive installation exploring the intersection of art and robotics.">
-        <img src="IMG_8011.jpg" alt="Project 3">
-        <div class="overlay">
-          <h3>Art and Robotics</h3>
-          <p>Interactive, 2023</p>
-        </div>
-      </div>
-      <!-- Add more projects here -->
     </div>
   </section>
 
   <section id="project-detail" class="hidden">
-  <div class="detail-image">
-    <img src="" alt="Large View" onclick="zoomImage(this)">
-  </div>
-  <div class="detail-text">
-    <h2 id="detail-title"></h2>
-    <p><strong>Author:</strong> <span id="detail-author"></span></p>
-    <p><strong>Year:</strong> <span id="detail-year"></span></p>
-    <p><strong>Place:</strong> <span id="detail-place"></span></p>
-    <p id="detail-description"></p>
-  </div>
-  <div class="thumbnail-bar"></div>
-  <button class="close" onclick="closeProject()">× Close</button>
-</section>
+    <div class="detail-image">
+      <img src="" alt="Large View" onclick="zoomImage(this)">
+    </div>
+    <div class="detail-text">
+      <h2 id="detail-title"></h2>
+      <p><strong>Author:</strong> <span id="detail-author"></span></p>
+      <p><strong>Year:</strong> <span id="detail-year"></span></p>
+      <p><strong>Place:</strong> <span id="detail-place"></span></p>
+      <p id="detail-description"></p>
+    </div>
+    <div class="thumbnail-bar"></div>
+    <button class="close" onclick="closeProject()">× Close</button>
+  </section>
 
   <script src="script.js"></script>
 </body>
