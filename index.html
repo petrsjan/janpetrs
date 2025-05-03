@@ -42,24 +42,20 @@
     </div>
   </section>
 
-  <div id="project-detail" class="hidden">
-    <button class="close" onclick="closeProject()">&times;</button>
-    <div class="detail-image">
-      <img src="IMG_8011.jpg" alt="Large View">
-    </div>
-    <div class="detail-text">
-      <h2 id="detail-title"></h2>
-      <p><strong>Author:</strong> <span id="detail-author"></span></p>
-      <p><strong>Year:</strong> <span id="detail-year"></span></p>
-      <p><strong>Place:</strong> <span id="detail-place"></span></p>
-      <p id="detail-description"></p>
-    </div>
-    <div class="thumbnail-bar">
-      <img src="IMG_8011.jpg" alt="Thumb" onclick="zoomThumbnail(this)">
-      <img src="IMG_8011.jpg" alt="Thumb" onclick="zoomThumbnail(this)">
-      <img src="IMG_8011.jpg" alt="Thumb" onclick="zoomThumbnail(this)">
-    </div>
+  <section id="project-detail" class="hidden">
+  <div class="detail-image">
+    <img src="" alt="Large View" onclick="zoomImage(this)">
   </div>
+  <div class="detail-text">
+    <h2 id="detail-title"></h2>
+    <p><strong>Author:</strong> <span id="detail-author"></span></p>
+    <p><strong>Year:</strong> <span id="detail-year"></span></p>
+    <p><strong>Place:</strong> <span id="detail-place"></span></p>
+    <p id="detail-description"></p>
+  </div>
+  <div class="thumbnail-bar"></div>
+  <button class="close" onclick="closeProject()">× Close</button>
+</section>
 
   <script src="script.js"></script>
 </body>
