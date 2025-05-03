@@ -11,47 +11,51 @@
     <h1>Jan Petrš</h1>
     <p>Researcher in Robotics and Architecture | EPFL</p>
     <p class="subheader">
-      I envision a future where buildings self-configure from intelligent components,
-      enabling construction to become more sustainable, optimized, and authentic.
-      Spaces will dynamically adapt based on their use. Originally trained as an architect,
-      I now focus on robotics at EPFL—particularly walkable tensegrities—blending design
-      and research at the intersection of robotics, materials, and the built environment.
+      I envision a future where buildings self-configure from intelligent components, enabling construction to become more sustainable, optimized, and authentic. Spaces will dynamically adapt based on their use. Originally trained as an architect, I now focus on robotics at EPFL—particularly walkable tensegrities—blending design and research at the intersection of robotics, materials, and the built environment.
     </p>
   </header>
 
   <section class="projects">
     <div class="grid">
-      <div class="project" onclick="openProject(this)" data-title="Tensegrity Gripper" data-author="Jan Petrš" data-year="2024" data-place="Lausanne" data-description="Soft robotic gripper based on tensegrity structures for lightweight manipulation.">
-        <img src="IMG_8011.jpg" alt="Project 1">
+      <div class="project" onclick="openProject(this)" data-title="Tensegrity Gripper" data-author="Jan Petrš" data-year="2024" data-place="Lausanne" data-description="Soft robotic gripper based on tensegrity structures for lightweight manipulation." data-image="img/project1.jpg">
+        <img src="img/project1.jpg" alt="Tensegrity Gripper" />
         <div class="overlay">
           <h3>Tensegrity Gripper</h3>
           <p>Jan Petrš, 2024</p>
         </div>
       </div>
-      <div class="project" onclick="openProject(this)" data-title="Bioinspired Pavilion" data-author="J. Petrš" data-year="2021" data-place="Stuttgart" data-description="A lightweight architectural pavilion inspired by natural morphologies.">
-        <img src="IMG_8011.jpg" alt="Project 2">
+      <div class="project" onclick="openProject(this)" data-title="Bioinspired Pavilion" data-author="J. Petrš" data-year="2021" data-place="Stuttgart" data-description="A lightweight architectural pavilion inspired by natural morphologies." data-image="img/project2.jpg">
+        <img src="img/project2.jpg" alt="Bioinspired Pavilion" />
         <div class="overlay">
           <h3>Bioinspired Pavilion</h3>
           <p>J. Petrš, 2021</p>
         </div>
       </div>
+      <div class="project" onclick="openProject(this)" data-title="Art and Robotics" data-author="Jan Petrš" data-year="2023" data-place="EPFL" data-description="An interactive installation exploring the intersection of art and robotics." data-image="img/project3.jpg">
+        <img src="img/project3.jpg" alt="Art and Robotics" />
+        <div class="overlay">
+          <h3>Art and Robotics</h3>
+          <p>Interactive, 2023</p>
+        </div>
+      </div>
+    </div>
+
+    <div id="project-detail" class="hidden">
+      <button class="close-btn" onclick="closeProject()">×</button>
+      <div class="detail-content">
+        <img id="detail-image" class="main-image" src="" alt="Large View" onclick="openLightbox(this.src)" />
+        <h2 id="detail-title"></h2>
+        <p><strong>Author:</strong> <span id="detail-author"></span></p>
+        <p><strong>Year:</strong> <span id="detail-year"></span></p>
+        <p><strong>Place:</strong> <span id="detail-place"></span></p>
+        <p id="detail-description"></p>
+      </div>
     </div>
   </section>
 
-  <section id="project-detail" class="hidden">
-    <div class="detail-image">
-      <img src="" alt="Large View" onclick="zoomImage(this)">
-    </div>
-    <div class="detail-text">
-      <h2 id="detail-title"></h2>
-      <p><strong>Author:</strong> <span id="detail-author"></span></p>
-      <p><strong>Year:</strong> <span id="detail-year"></span></p>
-      <p><strong>Place:</strong> <span id="detail-place"></span></p>
-      <p id="detail-description"></p>
-    </div>
-    <div class="thumbnail-bar"></div>
-    <button class="close" onclick="closeProject()">× Close</button>
-  </section>
+  <div id="lightbox" class="lightbox hidden" onclick="closeLightbox()">
+    <img id="lightbox-img" src="" alt="Full Size Image" />
+  </div>
 
   <script src="script.js"></script>
 </body>
