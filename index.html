@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,82 +12,44 @@
     <p>Researcher in Robotics and Architecture | EPFL</p>
     <p class="subheader">
       I envision a future where buildings self-configure from intelligent components, enabling construction to become more sustainable, optimized, and authentic.
-      Spaces will dynamically adapt based on their use. Originally trained as an architect, I now focus on robotics at EPFL—particularly walkable tensegrities—blending design and research at the intersection of robotics, materials, and the built environment.
+      Spaces will dynamically adapt based on their use. Originally trained as an architect, I now focus on robotics at EPFL—particularly walkable tensegrities—blending
+      design and research at the intersection of robotics, materials, and the built environment.
     </p>
   </header>
 
-  <section>
-    <h2>Projects</h2>
-    <div class="grid">
-      <div class="project"
-           data-title="Tensegrity Gripper"
-           data-authors="Jan Petrš, EPFL"
-           data-year="2024"
-           data-place="Lausanne, Switzerland"
-           data-role="Concept, design, prototyping"
-           data-abstract="This project explores a lightweight soft robotic gripper using a tensegrity structure actuated by pneumatic muscles."
-           data-image="IMG_8011.jpg"
-           data-gallery="IMG_8011.jpg,IMG_8011.jpg,IMG_8011.jpg">
-        <img src="IMG_8011.jpg" alt="Tensegrity Gripper">
+  <main>
+    <div class="grid" id="project-grid">
+      <div class="project" onclick="openProject('project1')">
+        <img src="IMG_8011.jpg" alt="Project Thumbnail">
         <div class="overlay">
           <h3>Tensegrity Gripper</h3>
           <p>Jan Petrš, 2024</p>
         </div>
       </div>
+      <!-- Duplicate the above div to add more grid items -->
     </div>
-  </section>
+  </main>
 
-  <div id="projectDetail" class="detail-view hidden">
+  <div id="project-detail" class="hidden">
     <div class="detail-content">
-      <span class="close-btn">&times;</span>
-      <img id="detailMainImg" class="detail-main-img" src="" alt="">
-      <h2 id="detailTitle"></h2>
-      <p><strong>Authors:</strong> <span id="detailAuthors"></span></p>
-      <p><strong>Year:</strong> <span id="detailYear"></span></p>
-      <p><strong>Place:</strong> <span id="detailPlace"></span></p>
-      <p><strong>Role:</strong> <span id="detailRole"></span></p>
-      <p id="detailAbstract"></p>
-      <div id="detailGallery" class="gallery"></div>
+      <img class="main-image" src="IMG_8011.jpg" alt="Main Image">
+      <h2>Tensegrity Gripper</h2>
+      <p><strong>Authors:</strong> Jan Petrš, Team</p>
+      <p><strong>Role:</strong> Concept, Design, Prototyping</p>
+      <p><strong>Year:</strong> 2024</p>
+      <p><strong>Location:</strong> EPFL, Lausanne</p>
+      <p class="description">
+        This project explores a lightweight and flexible gripper based on tensegrity principles. It combines soft robotics and structural design.
+      </p>
+      <div class="gallery">
+        <img src="IMG_8011.jpg" onclick="showImage(this.src)">
+        <img src="IMG_8011.jpg" onclick="showImage(this.src)">
+        <img src="IMG_8011.jpg" onclick="showImage(this.src)">
+      </div>
+      <button class="close-btn" onclick="closeProject()">Back to Projects</button>
     </div>
   </div>
 
-  <footer>
-    <p>Contact: <a href="mailto:jan@example.com">jan@example.com</a></p>
-  </footer>
-
-  <script>
-    const projects = document.querySelectorAll('.project');
-    const detailView = document.getElementById('projectDetail');
-    const closeBtn = document.querySelector('.close-btn');
-
-    projects.forEach(project => {
-      project.addEventListener('click', () => {
-        detailView.classList.add('visible');
-
-        document.getElementById('detailTitle').innerText = project.dataset.title;
-        document.getElementById('detailAuthors').innerText = project.dataset.authors;
-        document.getElementById('detailYear').innerText = project.dataset.year;
-        document.getElementById('detailPlace').innerText = project.dataset.place;
-        document.getElementById('detailRole').innerText = project.dataset.role;
-        document.getElementById('detailAbstract').innerText = project.dataset.abstract;
-        document.getElementById('detailMainImg').src = project.dataset.image;
-
-        const galleryContainer = document.getElementById('detailGallery');
-        galleryContainer.innerHTML = '';
-        const images = project.dataset.gallery.split(',');
-        images.forEach(src => {
-          const img = document.createElement('img');
-          img.src = src;
-          galleryContainer.appendChild(img);
-        });
-
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      });
-    });
-
-    closeBtn.addEventListener('click', () => {
-      detailView.classList.remove('visible');
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
